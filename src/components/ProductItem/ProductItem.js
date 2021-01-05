@@ -20,12 +20,18 @@ class ProductItem extends Component {
           <button type="button" className="btn btn-success mr-5">
             Sửa
           </button>
-          <button type="button" className="btn btn-danger">
+          <button type="button" className="btn btn-danger" onClick = {()=> this.onDelete(product.id)}>
             Xóa
           </button>
         </td>
       </tr>
     );
+  }
+
+  onDelete =(id)=>{
+    if(confirm('Bạn chắc chắn muốn xóa không?')){ //eslint-disable-line
+      this.props.onDelete(id);
+    }
   }
 }
 
