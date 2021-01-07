@@ -14,3 +14,18 @@ export const actFetchProductsRequest = ()=>{
             .then(res =>{dispatch(actFetchProducts(res.data))});
     }
 }
+
+export const actDeleteProduct = (id) =>{
+    return {
+        type: Types.DELETE_PRODUCT,
+        id
+    }
+}
+
+export const actDeleteProductRequest = (id) =>{
+    return dispatch =>{
+        return callAPI(`products/${id}`, 'DELETE', null)
+        .then(res =>
+            dispatch(actDeleteProduct(id)));
+    }
+}
